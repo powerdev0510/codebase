@@ -1,0 +1,14 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+.blockAuction {
+  margin-top: 100px;
+
+  @include b-btw(md, xxl) {
+    margin-top: 50px;
+  }
+
+  @include b-d(md) {
+    margin-top: 40px;
+  }
+}

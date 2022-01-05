@@ -1,0 +1,17 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins';
+
+.cardWalletActions {
+  @include style-card-black;
+
+  display: grid;
+  row-gap: 24px;
+  min-height: 383px;
+  padding: 24px;
+  grid-template-rows: auto 1fr;
+}
+
+.filtersContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}

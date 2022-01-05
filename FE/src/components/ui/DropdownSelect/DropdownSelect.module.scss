@@ -1,0 +1,124 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+$search-dropdown-width: 152px;
+$search-dropdown-width-w-image: 116px;
+
+.dropdownButton {
+  @include text-nav;
+
+  color: $white;
+  background-color: $gray-fields;
+  border-radius: 8px;
+  display: grid;
+  align-items: center;
+  grid-auto-flow: column;
+  text-align: left;
+  position: relative;
+  z-index: 5;
+  padding: 8px;
+  width: $search-dropdown-width-w-image;
+  column-gap: 8px;
+  grid-template-columns: auto 1fr auto;
+
+  .iconChevron {
+    color: $gray-300;
+    transition: transform 0.25s;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    height: calc(50% + 5px);
+    width: 100%;
+    top: 50%;
+    left: 0;
+    background-color: $gray-fields;
+    z-index: -1;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.25s opacity linear, 0.25s visibility linear;
+  }
+
+  &.active {
+    &::after {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .iconChevron {
+      transform: rotateX(180deg);
+    }
+  }
+}
+
+.img {
+  border-radius: 4px;
+  overflow: hidden;
+  transform: translateZ(0); // Fix iOS Safari border-radius bug
+}
+
+.popover {
+  @include text-small-1;
+  @include dark-scrollbar;
+
+  min-height: 0;
+  background-color: $gray-fields;
+  position: relative;
+  max-height: 150px;
+  width: $search-dropdown-width-w-image;
+  padding: 10px 8px 8px;
+  border-radius: 0 0 8px 8px;
+  z-index: $zindex-popover;
+  overflow-y: auto;
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 1.5px;
+    left: 0;
+    height: 1px;
+    background-color: $gray-900;
+    margin: 0 12px;
+    width: calc(100% - 12px * 2);
+  }
+
+  .listOptions {
+    //@include firefox-scrollbar-style;
+
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    row-gap: 12px;
+    color: $white;
+    overflow-y: auto;
+  }
+
+  .itemOption {
+    @include text-nav;
+    transition: color 0.25s;
+
+    &:hover,
+    &:focus {
+      color: $gray-300;
+    }
+
+    &.itemActive {
+      color: $pink;
+    }
+  }
+
+  .itemOptionButton {
+    color: inherit;
+    width: 100%;
+    text-align: left;
+    font-weight: inherit;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 8px;
+    align-items: center;
+  }
+}

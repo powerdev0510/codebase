@@ -1,0 +1,30 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins';
+
+.btnWIconToggle {
+  display: grid;
+  align-items: center;
+  grid-auto-flow: column;
+  column-gap: 10px;
+  padding: 0 31px;
+  color: $white;
+  min-height: 45px;
+
+  @include b-d(md) {
+    padding: 0;
+    width: 45px;
+    height: 45px;
+    justify-content: center;
+  }
+
+  .text {
+    @include b-d(md) {
+      display: none;
+    }
+  }
+
+  .iconFilterSettings {
+    padding: 2px;
+    box-sizing: content-box;
+  }
+}

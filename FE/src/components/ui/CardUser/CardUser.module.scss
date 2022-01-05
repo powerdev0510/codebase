@@ -1,0 +1,85 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+.cardUser {
+  @include style-card;
+
+  position: relative;
+  color: $white;
+}
+
+.cardHead {
+  padding: 8px 8px 0;
+}
+
+.imgLinkWrapper {
+  display: block;
+  width: 100%;
+  height: 128px;
+  border-radius: $card-img-border-radius;
+  overflow: hidden;
+
+  @include b-d(md) {
+    height: 93px;
+  }
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cardFooter {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 40px 1fr;
+  column-gap: 8px;
+  padding: 8px 16px 16px;
+}
+
+.imgUserWrapper {
+  display: block;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  border-radius: 8px;
+}
+
+.imgUser {
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.userInfo {
+  display: grid;
+  row-gap: 2px;
+}
+
+.textName {
+  font-size: 13px;
+}
+
+.textFollowers {
+  @include text-info;
+  color: $white;
+}
+
+.footerText {
+  white-space: nowrap;
+  display: inline-block;
+
+  @include b-d(md) {
+    white-space: normal;
+    line-height: 1.3;
+  }
+}
+
+.btnFollow {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  box-shadow: 16px 0 1px $gray-fields, -16px 0 8px $gray-fields;
+}

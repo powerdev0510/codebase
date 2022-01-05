@@ -1,0 +1,59 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins';
+
+.inputWrapper {
+  position: relative;
+  height: 44px;
+}
+
+.inputCopy {
+  @include text-nav;
+
+  --inp-copy-background-icon: url("data:image/svg+xml;utf8,<svg width='16' height='16' fill='none' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' clip-rule='evenodd' d='M6 1.33a.67.67 0 100 1.34h5.33c.74 0 1.34.6 1.34 1.33v6.67a.67.67 0 101.33 0V4c0-1.47-1.2-2.67-2.67-2.67H6zM4 4a2 2 0 00-2 2v6.67c0 1.1.9 2 2 2h5.33a2 2 0 002-2V6a2 2 0 00-2-2H4zm-.67 2c0-.37.3-.67.67-.67h5.33c.37 0 .67.3.67.67v6.67c0 .37-.3.66-.67.66H4a.67.67 0 01-.67-.66V6z' fill='%23D7DCE0'/></svg>");
+
+  &.copied {
+    --inp-copy-background-icon: url("data:image/svg+xml;utf8,<svg stroke-width='0' xmlns='http://www.w3.org/2000/svg' fill='%23D7DCE0' height='20' width='20' viewBox='0 0 24 24'><path d='M2.4 13.74l4.74 3.62 7.61-8.7-1.5-1.32-6.39 7.3-3.25-2.49zm19.35-5.08l-1.5-1.32-6.37 7.28-.76-.6-1.24 1.56 2.24 1.8z' /></svg>");
+  }
+
+  color: $gray-300;
+  background: var(--inp-copy-background-icon) no-repeat right 16px top 50%;
+  background-color: $black;
+  border: 0;
+
+  padding: 12px 44px 12px 16px;
+  overflow: hidden;
+
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: 0;
+
+  font-family: 'Roboto Mono', Inter, Arial, sans-serif;
+  font-weight: 500;
+  text-overflow: ellipsis;
+
+  &.start {
+    text-align: start;
+  }
+}
+
+.confirmation {
+  @include text-info;
+
+  display: none;
+  pointer-events: none;
+  user-select: none;
+  position: absolute;
+  top: 100%;
+  right: 24px;
+  transform: translate(50%, 3px);
+  padding: 4px 12px 5px;
+  color: $white;
+  border-radius: 100px;
+  background-color: $black;
+  z-index: 5;
+
+  &.copied {
+    display: block;
+  }
+}

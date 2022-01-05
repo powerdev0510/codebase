@@ -1,0 +1,20 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+.inputDate {
+  position: relative;
+}
+
+.formControl:read-only {
+  background-color: $gray-fields;
+}
+
+.popover {
+  background-color: $black;
+  z-index: $zindex-modal + 10;
+  min-height: 0;
+  max-width: 368px;
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 8px 12px rgba($black, 0.25);
+}

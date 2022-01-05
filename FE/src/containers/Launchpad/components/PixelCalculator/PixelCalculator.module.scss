@@ -1,0 +1,100 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+.pixelCalculator {
+  @include style-card;
+
+  text-align: center;
+  padding: 32px;
+}
+
+.textHeading {
+  margin-bottom: 4px;
+}
+
+.btnConnect {
+  width: 100%;
+  margin-top: 36px;
+}
+
+.inpGroup {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gridInputs {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  justify-content: space-between;
+  align-items: center;
+  text-align: start;
+  margin-top: 32px;
+}
+
+.textLabel {
+  @include text-nav-1;
+
+  justify-self: start;
+}
+
+.textMuted {
+  @include text-info;
+
+  color: $white-200;
+  grid-column: 1 / 3;
+}
+
+.gridLock {
+  display: grid;
+  justify-items: center;
+  row-gap: 20px;
+  margin-top: 20px;
+
+  > svg {
+    color: $white;
+  }
+}
+
+.gridInpDays {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: baseline;
+  column-gap: 8px;
+}
+
+.inpDaysWrapper {
+  width: 60px;
+}
+
+.inpDays {
+  @include text-body-1;
+
+  padding: 8px 14px;
+  border-radius: 16px;
+}
+
+.gridPixelAmount {
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 12px;
+  align-items: baseline;
+}
+
+.textPixelAmount {
+  color: transparent;
+  background: $gradient-1-primary;
+  //noinspection CssInvalidPropertyValue
+  background-clip: text;
+}
+
+.textPixel {
+  @include text-subtitle;
+}
+
+.textLockDate {
+  @include text-nav;
+
+  color: $white;
+  margin-top: 4px;
+}

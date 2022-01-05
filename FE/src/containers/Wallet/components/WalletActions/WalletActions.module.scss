@@ -1,0 +1,76 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins';
+
+.blockWalletAction {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .textSup {
+    @include text-body-2;
+
+    color: $gray-400;
+  }
+
+  .textSub {
+    @include text-info;
+
+    color: $white-200;
+
+    &.textSubSend {
+      min-height: 20px;
+    }
+  }
+
+  .gridWallet {
+    display: grid;
+    grid-template-rows: auto 36px auto;
+    align-items: center;
+  }
+
+  .gridCurrency {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 8px;
+  }
+
+  .btnSeparator {
+    width: 40px;
+    height: 40px;
+    border: 1px solid $white-200;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s;
+    margin: 12px auto;
+
+    &:hover,
+    &:focus {
+      border-color: $white;
+      background-color: $gray-fields;
+    }
+  }
+
+  .iconSeparator {
+    color: $white;
+    box-sizing: content-box;
+  }
+
+  hr {
+    color: $gray-700;
+    opacity: 1;
+    margin: 0;
+  }
+
+  .btnSubmit {
+    width: 100%;
+    margin-top: auto;
+  }
+
+  .inputRecipientWrapper {
+    margin-top: 24px;
+  }
+}

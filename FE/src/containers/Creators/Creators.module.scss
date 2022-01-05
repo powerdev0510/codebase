@@ -1,0 +1,20 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+.heading {
+  margin: 43px 0 24px;
+
+  @include b-d(md) {
+    margin: 24px 0;
+  }
+}
+
+.cardsGrid {
+  @include cards-grid;
+
+  @include b-d(md) {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 20px;
+    column-gap: 12px;
+  }
+}

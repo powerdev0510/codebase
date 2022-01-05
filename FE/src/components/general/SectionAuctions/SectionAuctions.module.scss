@@ -1,0 +1,32 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins';
+
+.sectionAuction {
+  display: grid;
+  row-gap: 20px;
+  grid-template-rows: auto 1fr;
+  align-items: start;
+
+  @include b-d(xxl) {
+    grid-row-start: auto;
+    grid-row-end: auto;
+  }
+}
+
+.gridAuction {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+
+  @include b-d(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include b-d(ipad) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include b-d(md) {
+    grid-template-columns: 1fr;
+  }
+}

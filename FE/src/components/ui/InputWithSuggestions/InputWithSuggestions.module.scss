@@ -1,0 +1,31 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins';
+
+.popover {
+  background-color: $gray-fields;
+  border-radius: 16px;
+  max-height: 220px;
+  min-height: 0;
+  width: 311px;
+  max-width: none;
+  overflow-y: hidden;
+  z-index: $zindex-popover;
+  border: 1px solid $white-200;
+  padding-bottom: 4px;
+}
+
+.listSuggestions {
+  overflow-y: hidden;
+  list-style-type: none;
+  display: grid;
+  margin: 0;
+  padding: 0;
+
+  > li {
+    padding: 4px;
+  }
+}
+
+.suggestionApplied {
+  color: $pink;
+}

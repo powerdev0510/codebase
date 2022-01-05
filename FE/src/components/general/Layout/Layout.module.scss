@@ -1,0 +1,22 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins';
+
+.layout {
+  //overflow: hidden; // disabled to make `position: sticky;` work
+  position: relative;
+  min-width: 375px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .main {
+    flex-grow: 1;
+    min-height: 250px;
+
+    padding-top: 70px;
+
+    @include b-d(md) {
+      padding-top: 60px;
+    }
+  }
+}

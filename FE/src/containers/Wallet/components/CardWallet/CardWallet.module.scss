@@ -1,0 +1,80 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins';
+
+.cardWallet {
+  @include style-card;
+
+  border-radius: 16px;
+  padding: 16px;
+  display: grid;
+  row-gap: 16px;
+  width: 148px;
+  border: 1px solid transparent;
+  transition: border-color 0.25s;
+  cursor: pointer;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    padding: 1px;
+    mask: linear-gradient(#fff 0, #fff 100%) content-box,
+      linear-gradient(#fff 0, #fff 100%) border-box;
+    //-webkit-mask-composite: destination-out; // Breaks on iOS
+    mask-composite: exclude;
+    border-radius: 16px;
+    background: $gradient-2-danger;
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+
+  .gridInfo {
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto 1fr;
+    text-align: left;
+    grid-auto-flow: column;
+    column-gap: 8px;
+  }
+
+  .coinImg {
+    width: 24px;
+    height: 24px;
+    transform: translateZ(0); // Fix iOS Safari border-radius bug
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .name {
+    @include text-nav;
+    color: $gray-300;
+  }
+
+  .textCoins {
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: $font-weight-semi-bold;
+    color: $white;
+  }
+
+  .textUSD {
+    @include text-info;
+
+    color: $gray-400;
+    margin-top: 4px;
+  }
+
+  /* Active style */
+  &.active {
+    background: $gradient-2-danger-bg;
+
+    &::after {
+      opacity: 1;
+    }
+  }
+}

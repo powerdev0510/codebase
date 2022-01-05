@@ -1,0 +1,93 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+.badgeCountdown {
+  @include text-info;
+
+  background-color: $gray-fields;
+  padding: 4px 8px;
+  border-radius: 7px;
+  color: $white;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    padding: 1px;
+    border-radius: 7px;
+    mask: linear-gradient(#fff 0, #fff 100%) content-box,
+      linear-gradient(#fff 0, #fff 100%);
+    mask-composite: exclude;
+    background: rgba(255, 255, 255, 0.5);
+  }
+
+  &.active::after {
+    background: $gradient-2-danger;
+  }
+
+  &.lgAdaptive {
+    @include text-nav;
+
+    padding: 8px 12px;
+
+    .twoDigitContainer {
+      margin-right: 2.5px;
+
+      &.HH {
+        min-width: 25.5px;
+      }
+
+      &.mm {
+        min-width: 30.5px;
+      }
+
+      &.ss {
+        min-width: 24px;
+        margin-right: 3px;
+      }
+    }
+
+    @include b-d(xxl) {
+      padding: 4.5px 12px;
+    }
+  }
+}
+
+.textCountdown {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  column-gap: 8px;
+  justify-content: start;
+
+  &::before {
+    content: '';
+    display: block;
+    border-radius: 100%;
+    width: 8px;
+    height: 8px;
+    background: $gradient-2-danger;
+  }
+}
+
+.twoDigitContainer {
+  display: inline-block;
+  margin-right: 2px;
+  text-align: center;
+
+  &.HH {
+    min-width: 19.5px;
+  }
+
+  &.mm {
+    min-width: 23.5px;
+  }
+
+  &.ss {
+    min-width: 19px;
+  }
+}

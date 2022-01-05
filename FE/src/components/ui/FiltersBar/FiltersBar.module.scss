@@ -1,0 +1,98 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+.filtersBar {
+  @include hideScrollbar;
+
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 12px;
+
+  &:not(.hasExpandButton) {
+    @include extend-to-edges-outer;
+
+    .extraPaddingContainer {
+      @include extend-to-edges-inner;
+    }
+  }
+
+  &.isExpanded {
+    .filtersContainer {
+      height: auto;
+      padding-right: 0;
+    }
+
+    .btnExpand {
+      position: static;
+      transform: none;
+    }
+  }
+
+  overflow-x: auto;
+
+  &.hasExpandButton {
+    overflow: hidden;
+
+    @include b-d(md) {
+      overflow-x: scroll;
+      line-height: 0;
+    }
+
+    .filtersContainer {
+      padding-right: calc(142px + 12px);
+      flex-wrap: wrap;
+      overflow: hidden;
+      display: inline-flex;
+
+      > button {
+        margin-bottom: 16px;
+      }
+
+      @include b-d(md) {
+        display: inline-flex;
+        flex-wrap: nowrap;
+        overflow-x: visible;
+        padding: 0;
+
+        > button {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+.filtersContainer {
+  height: calc(48px);
+  display: flex;
+  justify-content: flex-start;
+  margin-left: -12px;
+  position: relative;
+
+  > button {
+    margin-left: 12px;
+  }
+}
+
+.extraPaddingContainer {
+  @include b-d(md) {
+    padding: 0 $container-padding-x-xs;
+  }
+}
+
+.btnExpand {
+  align-self: flex-start;
+  min-width: 142px;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  &:focus,
+  &:active:focus {
+    box-shadow: none;
+  }
+
+  @include b-d(md) {
+    display: none;
+  }
+}

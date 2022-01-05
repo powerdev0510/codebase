@@ -1,0 +1,96 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+.blockUsers {
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 8px;
+  position: relative;
+  align-items: center;
+
+  &:hover {
+    .blockUserNames {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  /* Variant: auctionPage */
+  &.auctionPage {
+    .imgUserWrapper {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}
+
+.gridInfo {
+  display: grid;
+  row-gap: 2px;
+
+  .textRole {
+    @include text-info;
+  }
+
+  .textName {
+    @include text-nav;
+
+    color: $white;
+  }
+}
+
+.blockUserNames {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-100%);
+  padding-bottom: 8px;
+  transition: all 0.25s;
+}
+
+.blockUserNamesInner {
+  @include text-info;
+
+  padding: 4px 8px;
+  background-color: $gray-card;
+  border-radius: 7px;
+  white-space: nowrap;
+}
+
+.rowUser {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  column-gap: 4px;
+
+  .textRole {
+    color: $white-500;
+  }
+
+  .textUsername:hover {
+    color: $pink;
+  }
+}
+
+.iconVerifiedSmall {
+  color: #31fe7d;
+}
+
+.imgUserWrapper {
+  display: block;
+  border: 1px solid $gray-fields;
+  width: 32px;
+  height: 32px;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.imgUser {
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

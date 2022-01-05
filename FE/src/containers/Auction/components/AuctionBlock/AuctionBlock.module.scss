@@ -1,0 +1,187 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+.auctionBlock {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr) 216px;
+  align-items: start;
+  column-gap: 48px;
+
+  @include b-btw(lg, xxl) {
+    grid-template-columns: minmax(412px, 3fr) 4fr;
+    column-gap: 60px;
+    row-gap: 18px;
+  }
+
+  @include b-btw(md, lg) {
+    grid-template-columns: 1fr 216px;
+    grid-template-rows: repeat(2, auto);
+    column-gap: 70px;
+    row-gap: 56px;
+  }
+
+  @include b-d(md) {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    row-gap: 20px;
+  }
+}
+
+.imgWrapper {
+  @include b-btw(md, lg) {
+    grid-column: 1 / 3;
+    max-width: 442px;
+    width: 100%;
+    justify-self: center;
+  }
+}
+
+.imgAspectRatioContainer {
+  @include fix-ios-border-radius;
+
+  padding-top: 100%;
+  width: 100%;
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+
+.badgeCountdown {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.colInfo {
+  min-width: 0;
+
+  @include b-up(xxl) {
+    margin-left: 12px;
+  }
+
+  @include b-btw(lg, xxl) {
+    grid-row: 1 / 4;
+    grid-column: 2 / 3;
+  }
+
+  @include b-d(md) {
+    display: grid;
+    row-gap: 16px;
+  }
+
+  .groupCardPurchase {
+    display: grid;
+    row-gap: 8px;
+
+    &:nth-child(4) {
+      margin-top: 8px;
+    }
+
+    @include b-up(md) {
+      display: none;
+    }
+  }
+
+  .gridAsideCard {
+    display: none;
+
+    @include b-d(md) {
+      display: grid;
+      justify-items: center;
+    }
+  }
+
+  .textPercentToCreator {
+    @include b-up(md) {
+      display: none;
+    }
+  }
+
+  .cardShare {
+    @include b-up(md) {
+      display: none;
+    }
+  }
+}
+
+.heading {
+  position: relative;
+
+  @include b-btw(lg, xxl) {
+    padding-right: 64px;
+  }
+
+  .cardShareInline {
+    display: none;
+    position: absolute;
+    right: 0;
+    bottom: 4px;
+    box-shadow: 0 0 16px 8px rgba($black, 0.8);
+
+    @include b-btw(lg, xxl) {
+      display: grid;
+    }
+  }
+}
+
+.rowFigures {
+  margin-top: 16px;
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 16px;
+  justify-content: start;
+
+  @include b-d(md) {
+    display: none;
+  }
+}
+
+.textPercentToCreator {
+  @include text-info;
+
+  text-align: center;
+
+  .textWhite {
+    color: $white;
+  }
+}
+
+.tabsBlock {
+  margin-top: 24px;
+  width: 100%;
+  min-width: 0;
+
+  @include b-d(md) {
+    margin-top: 16px;
+  }
+}
+
+.gridAside {
+  display: grid;
+  row-gap: 16px;
+
+  @include b-d(md) {
+    display: none;
+  }
+
+  .cardShare {
+    @include b-btw(lg, xxl) {
+      display: none;
+    }
+  }
+
+  .textPercentToCreator {
+    @include b-btw(lg, xxl) {
+      grid-row: 1 / 2;
+    }
+  }
+}

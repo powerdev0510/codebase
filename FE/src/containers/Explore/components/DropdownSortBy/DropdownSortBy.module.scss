@@ -1,0 +1,25 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+.menu {
+  padding: 15px 15px 11px;
+  width: 241px;
+}
+
+.title {
+  @include text-nav-1;
+
+  color: $white-500;
+  margin-bottom: 8px;
+}
+
+.option {
+  padding: 4px 0;
+}
+
+.optionTitle {
+  @include text-nav-1;
+
+  color: $white;
+  transition: all 250ms;
+}

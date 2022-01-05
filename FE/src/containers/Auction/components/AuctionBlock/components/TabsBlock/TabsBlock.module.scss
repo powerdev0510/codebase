@@ -1,0 +1,88 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+.navWrapper {
+  min-width: 0;
+  width: calc(100% + 2 * #{$container-padding-x-xs});
+  margin-left: -$container-padding-x-xs;
+  margin-bottom: 24px;
+  line-height: 0;
+  position: relative;
+}
+
+%blendShadow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: $container-padding-x-xs;
+}
+
+.blendShadowL {
+  @extend %blendShadow;
+
+  left: 0;
+  background: linear-gradient(90deg, rgba($black, 1) 0%, rgba($black, 0) 100%);
+}
+
+.blendShadowR {
+  @extend %blendShadow;
+
+  right: 0;
+  background: linear-gradient(270deg, rgba($black, 1) 0%, rgba($black, 0) 100%);
+}
+
+.navScroll {
+  @include hideScrollbar;
+
+  width: 100%;
+  overflow-x: scroll;
+}
+
+.nav {
+  display: inline-grid;
+  border-left: $container-padding-x-xs solid $black;
+  border-right: $container-padding-x-xs solid $black;
+}
+
+.textDescription {
+  @include text-nav;
+}
+
+.tabDetailsContent {
+  display: grid;
+  row-gap: 24px;
+}
+
+.tabHistoryContent {
+  @include dark-scrollbar;
+
+  max-height: calc(48px * 4 + 24px * 3);
+  overflow-y: auto;
+
+  &.isLoading {
+    overflow-y: hidden;
+  }
+}
+
+.cardCollection {
+  width: 216px;
+}
+
+.gridRelatedUsers {
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 40px;
+  justify-content: start;
+}
+
+.gridHistoryItems {
+  display: grid;
+  row-gap: 24px;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border-right-color: transparent;
+  border-width: 4px;
+}

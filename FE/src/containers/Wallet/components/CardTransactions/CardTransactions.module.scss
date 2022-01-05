@@ -1,0 +1,107 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins';
+
+.cardTransactions {
+  @include style-card;
+
+  @include b-d(md) {
+    background-color: transparent;
+  }
+}
+
+.rowHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+
+.filterBar {
+  display: flex;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-left: -16px;
+  margin-top: -16px;
+
+  > button {
+    margin-left: 16px;
+    margin-top: 16px;
+  }
+
+  @include b-d(md) {
+    flex-wrap: nowrap;
+    border-left: 20px solid $black;
+  }
+}
+
+.accordionCollapse {
+  @include b-d(md) {
+    width: calc(100% + 2 * #{$container-padding-x-xs});
+    margin-left: -$container-padding-x-xs;
+  }
+}
+
+.filterBarContainer {
+  padding-bottom: 16px;
+  transition: all 0.35s;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 24px;
+  align-items: flex-start;
+
+  @include b-d(md) {
+    @include hideScrollbar;
+
+    width: 100%;
+    overflow-x: scroll;
+    column-gap: 16px;
+  }
+}
+
+.inpSearch {
+  width: 180px;
+  justify-self: flex-end;
+
+  @include b-d(md) {
+    border-right: 20px solid $black;
+  }
+}
+
+.itemHeader {
+  @include text-subtitle-2;
+
+  display: grid;
+  column-gap: 16px;
+  grid-template-columns: 48px 1fr repeat(3, 150px);
+  justify-items: flex-start;
+  color: $gray-400;
+  padding: 20px;
+  border-bottom: 1px solid $white-200;
+
+  > p:first-child {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
+  .textAmount {
+    justify-self: end;
+  }
+
+  @include b-d(xxl) {
+    grid-template-columns: 48px 1fr 165px 24px;
+
+    .textStatus {
+      display: none;
+    }
+
+    .textCreationDate {
+      display: none;
+    }
+  }
+
+  @include b-d(md) {
+    display: none;
+  }
+}

@@ -1,0 +1,33 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+.followBtn {
+  width: 48px;
+  background: $black;
+  padding: 12px;
+  border: 2px solid $gray-fields;
+  border-radius: 16px;
+  color: $white;
+  transition: color 250ms, border-color 250ms;
+
+  &:hover {
+    color: $white-500;
+  }
+
+  @include b-d(md) {
+    top: 13px;
+    right: 11px;
+    bottom: auto;
+    box-shadow: none;
+  }
+
+  &.unfollow {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: $gray-fields;
+    padding: 12px;
+
+    &:hover {
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+}

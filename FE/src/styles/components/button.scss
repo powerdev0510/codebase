@@ -1,0 +1,180 @@
+button {
+  display: block;
+  outline: none;
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+}
+
+%btn-outline-gradient {
+  @include text-nav-1;
+
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  color: $white;
+  border: 0;
+
+  &::before {
+    position: absolute;
+    content: '';
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.25s;
+    pointer-events: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    padding: 1px;
+    border-radius: $btn-border-radius;
+    mask: linear-gradient(#fff 0, #fff 100%) content-box,
+      linear-gradient(#fff 0, #fff 100%) border-box;
+    //-webkit-mask-composite: destination-out; // Breaks on iOS
+    mask-composite: exclude;
+  }
+
+  &:hover,
+  &:focus {
+    color: $white;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  @include style-disabled {
+    color: $white;
+
+    &::before {
+      opacity: 0;
+    }
+  }
+}
+
+.btn {
+  &-outline-dark {
+    &:hover {
+      border-color: $white-500;
+    }
+  }
+
+  &-outline-success {
+    @extend %btn-outline-gradient;
+
+    background: $gradient-3-success-bg;
+
+    &::before {
+      background: $gradient-3-success;
+    }
+
+    &::after {
+      background: $gradient-3-success;
+    }
+  }
+
+  &-outline-warning {
+    @extend %btn-outline-gradient;
+
+    background: $gradient-5-warning-bg;
+
+    &::before {
+      background: $gradient-5-warning;
+    }
+
+    &::after {
+      background: $gradient-5-warning;
+    }
+  }
+
+  &-outline-primary {
+    @extend %btn-outline-gradient;
+
+    background: $gradient-1-primary-bg;
+
+    &::before {
+      background: $gradient-1-primary;
+    }
+
+    &::after {
+      background: $gradient-1-primary;
+    }
+  }
+
+  &-outline-danger {
+    @extend %btn-outline-gradient;
+
+    background: $gradient-2-danger-bg;
+
+    &::before {
+      background: $gradient-2-danger;
+    }
+
+    &::after {
+      background: $gradient-2-danger;
+    }
+  }
+
+  &-adaptive-sm {
+    @include b-d(md) {
+      border-radius: 6px;
+
+      &::after {
+        border-radius: 6px;
+      }
+    }
+  }
+
+  &-outline-dark-field {
+    @include text-nav-1-responsive;
+
+    color: $white-500;
+    padding: 11px 27px;
+  }
+
+  &-black {
+    border: 2px solid $gray-fields;
+
+    &:hover {
+      background-color: $white-100;
+      border-color: $gray-fields;
+    }
+  }
+
+  &-menu {
+    @extend .btn-black;
+
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 12px;
+    padding: 0;
+    border-width: 1px;
+
+    &:hover,
+    &:focus {
+      background-color: $gray-fields;
+    }
+  }
+
+  &-lg {
+    &::after {
+      padding: 2px;
+      border-radius: $btn-border-radius-lg;
+    }
+  }
+}

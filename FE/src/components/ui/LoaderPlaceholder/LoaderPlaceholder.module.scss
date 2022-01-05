@@ -1,0 +1,6 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+.wrap {
+  @include page-content-centering;
+}

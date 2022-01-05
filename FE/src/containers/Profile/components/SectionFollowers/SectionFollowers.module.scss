@@ -1,0 +1,96 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins';
+
+.sectionFollowers {
+  display: grid;
+  align-content: start;
+  row-gap: 24px;
+}
+
+.sectionHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.headingWrapper {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.btnBack {
+  color: $white;
+  transition: color 0.25s;
+
+  &:hover {
+    color: $pink;
+  }
+}
+
+.inpSearch {
+  width: 258px;
+
+  @include b-d(md) {
+    width: 143px;
+  }
+}
+
+.gridFollowers {
+  display: grid;
+
+  @include b-up(xxl) {
+    grid-template-columns: repeat(4, auto);
+    column-gap: 20px;
+  }
+
+  @include b-btw(ipad, xxl) {
+    grid-template-columns: repeat(3, auto);
+    column-gap: 10px;
+  }
+
+  @include b-btw(md, ipad) {
+    grid-template-columns: repeat(2, auto);
+    column-gap: 10px;
+  }
+
+  @include b-d(md) {
+    row-gap: 28px;
+  }
+}
+
+.gridItem {
+  @include b-up(xxl) {
+    &:not(:nth-child(4n)) {
+      border-right: 1px solid $white-100;
+      padding-right: 20px;
+    }
+
+    &:nth-child(n + 5) {
+      padding-top: 28px;
+    }
+  }
+
+  @include b-btw(ipad, xxl) {
+    &:not(:nth-child(3n)) {
+      border-right: 1px solid $white-100;
+      padding-right: 10px;
+    }
+
+    &:nth-child(n + 4) {
+      padding-top: 28px;
+    }
+  }
+
+  @include b-btw(md, ipad) {
+    &:not(:nth-child(2n)) {
+      border-right: 1px solid $white-100;
+      padding-right: 10px;
+    }
+
+    &:nth-child(n + 3) {
+      padding-top: 28px;
+    }
+  }
+}

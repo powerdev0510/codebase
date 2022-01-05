@@ -1,0 +1,30 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+.itemFollower {
+  display: inline-grid;
+  grid-template-columns: auto 1fr auto;
+  grid-auto-flow: column;
+  column-gap: 8px;
+  row-gap: 2px;
+  align-items: center;
+  color: $white;
+}
+
+.img {
+  @include fix-ios-border-radius;
+
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+}
+
+.textName {
+  @include text-nav;
+}
+
+.textFollowers {
+  @include text-info;
+
+  margin-top: 2px;
+}

@@ -1,0 +1,23 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+.tabContent {
+  @include cards-grid;
+  margin-top: 24px;
+
+  @include b-d(md) {
+    margin-top: 20px;
+  }
+
+  &.users {
+    @include b-btw(lg, xl) {
+      margin-top: 40px;
+    }
+  }
+
+  &.collections {
+    @include b-btw(md, lg) {
+      margin-top: 30px;
+    }
+  }
+}

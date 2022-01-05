@@ -1,0 +1,51 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins';
+
+.auctionHistoryItem {
+  display: grid;
+  grid-template-columns: 48px auto;
+  grid-template-rows: auto auto;
+  column-gap: 12px;
+  row-gap: 2px;
+}
+
+.imgWrapper {
+  grid-row: 1 / 3;
+}
+
+.img {
+  @include fix-ios-border-radius;
+
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid $gray-card;
+}
+
+.textDesc {
+  @include text-nav;
+
+  color: $gray-300;
+}
+
+.textDate {
+  @include text-info;
+
+  color: $gray-400;
+}
+
+.textUserLink {
+  @include text-nav-1;
+
+  &:hover {
+    color: $gray-300;
+  }
+}
+
+.textPrice {
+  @include text-nav-1;
+
+  color: $pink;
+  white-space: nowrap;
+}

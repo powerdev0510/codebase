@@ -1,0 +1,18 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+.wrap {
+  margin-bottom: 24px;
+
+  @include b-d(md) {
+    margin-bottom: 20px;
+  }
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  grid-auto-flow: column;
+  justify-content: flex-start;
+  gap: 12px;
+}

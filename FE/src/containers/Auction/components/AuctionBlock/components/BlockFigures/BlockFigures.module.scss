@@ -1,0 +1,53 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+.gridPrice {
+  display: grid;
+  column-gap: 16px;
+  grid-template-rows: repeat(2, auto);
+  grid-auto-flow: column;
+  align-items: center;
+
+  @include b-d(md) {
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: auto;
+    justify-content: space-between;
+  }
+
+  &:not(:last-child)::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 20px;
+    background-color: $white-200;
+
+    @include b-d(md) {
+      display: none;
+    }
+  }
+}
+
+.textPriceCoins {
+  $gradients: (
+    'primary': $gradient-1-primary,
+    'completed': $gradient-2-danger,
+    'live': $gradient-3-success,
+    'warning': $gradient-5-warning,
+    'yellow': $gradient-4-yellow,
+  );
+
+  @include text-nav-1;
+
+  @each $variant, $value in $gradients {
+    &.#{$variant} {
+      color: transparent;
+      background: $value;
+      //noinspection CssInvalidPropertyValue
+      background-clip: text;
+    }
+  }
+}
+
+.textPriceUsd {
+  @include text-info;
+}

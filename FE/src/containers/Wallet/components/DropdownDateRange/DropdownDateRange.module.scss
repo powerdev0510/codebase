@@ -1,0 +1,89 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+.popover {
+  min-height: 0;
+  background-color: $gray-fields;
+  border-radius: 16px;
+  padding: 0;
+  color: $white;
+  box-shadow: 0 8px 24px rgba($black, 0.2);
+  border: 1px solid #191919;
+  max-width: 400px;
+  width: 100%;
+
+  .popoverHead {
+    @include text-nav-1;
+
+    padding: 20px 20px 19px;
+    border-bottom: 1px solid $white-200;
+    color: $white-500;
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+    column-gap: 12px;
+  }
+
+  .btnIcon {
+    color: $white;
+    transition: color 0.25s;
+
+    &:hover,
+    &:focus {
+      color: $pink;
+    }
+  }
+
+  .iconApply {
+    margin-left: 8px;
+  }
+
+  .containerCalendar {
+    position: relative;
+    width: 100%;
+  }
+
+  .yearSelect {
+    //@include text-h-5; //TODO: here
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: $gray-700;
+    padding: 20px;
+    list-style-type: none;
+    text-align: center;
+    display: grid;
+    row-gap: 12px;
+    overflow-y: scroll;
+
+    // Mozilla Firefox Scrollbar
+    scrollbar-width: thin;
+    scrollbar-color: $primary transparent;
+
+    .yearSelectItem {
+      border: 1px solid transparent;
+      transition: all 0.25s;
+      border-radius: 100px;
+      align-content: flex-start;
+
+      &:hover,
+      &:focus {
+        background: rgba(255, 255, 255, 0.09);
+        border: 1px solid $gray-200;
+      }
+
+      &.selected {
+        border-color: $primary;
+        background-color: $pink; //TODO: here
+      }
+
+      > button {
+        padding: 10px 0;
+        width: 100%;
+      }
+    }
+  }
+}

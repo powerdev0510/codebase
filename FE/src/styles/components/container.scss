@@ -1,0 +1,21 @@
+.container {
+  @extend .container-fluid;
+  max-width: 1440px;
+
+  &-fluid {
+    margin: auto;
+    padding: 0 $container-padding-x-xxl;
+
+    @include b-btw(lg, xxl) {
+      padding: 0 $container-padding-x-lg;
+    }
+
+    @include b-btw(md, lg) {
+      padding: 0 $container-padding-x-md;
+    }
+
+    @include b-d(md) {
+      padding: 0 $container-padding-x-xs;
+    }
+  }
+}

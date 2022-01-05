@@ -1,0 +1,12 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+.btnRegister {
+  width: 100%;
+}
+
+.gridInputs {
+  margin-top: 28px;
+  display: grid;
+  row-gap: 24px;
+}

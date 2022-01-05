@@ -1,0 +1,14 @@
+{
+  "extends": ["config:base"],
+  "semanticCommits": "enabled",
+  "stabilityDays": 10,
+  "prCreation": "not-pending",
+  "labels": ["type: dependencies"],
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    }
+  ],
+  "baseBranches": ["dev"]
+}

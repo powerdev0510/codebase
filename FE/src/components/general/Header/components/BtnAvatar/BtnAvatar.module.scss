@@ -1,0 +1,27 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+.btnAvatar {
+  @include fix-ios-border-radius;
+
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.25s;
+  padding: 0;
+  border-width: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include b-d(md) {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+  }
+}
+
+.imgAvatar {
+  object-fit: cover;
+}

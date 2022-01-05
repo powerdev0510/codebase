@@ -1,0 +1,245 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+%overlayShadow {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  z-index: 5;
+
+  @include b-btw(lg, xxl) {
+    width: 30px;
+  }
+
+  @include b-btw(md, lg) {
+    width: 70px;
+  }
+
+  @include b-d(md) {
+    display: none;
+  }
+}
+
+.headingWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 40px 0 24px;
+
+  @include b-d(xxl) {
+    margin: 60px 0 24px;
+  }
+
+  @include b-d(lg) {
+    margin: 60px 0 28px;
+  }
+
+  @include b-d(md) {
+    margin: 40px 0 28px;
+  }
+}
+
+.linkMore {
+  @include text-subtitle-responsive;
+
+  color: $white-500;
+
+  &:hover {
+    color: $pink;
+  }
+
+  @include b-d(lg) {
+    font-size: 14px;
+  }
+}
+
+.blockScrollCardsOuter {
+  @include extend-to-edges-outer;
+
+  max-width: 1440px;
+  position: relative;
+
+  &::after {
+    @extend %overlayShadow;
+
+    right: 0;
+    background: linear-gradient(
+      270deg,
+      rgba($body-bg, 1) 0%,
+      rgba($body-bg, 0) 100%
+    );
+  }
+
+  &::before {
+    @extend %overlayShadow;
+
+    left: 0;
+    background: linear-gradient(
+      90deg,
+      rgba($body-bg, 1) 0%,
+      rgba($body-bg, 0) 100%
+    );
+
+    @include b-btw(md, lg) {
+      width: 20px;
+    }
+  }
+}
+
+.blockScrollCardsInner {
+  @include hideScrollbar;
+
+  overflow-x: scroll;
+  line-height: 0;
+}
+
+.gridExploreScroll {
+  @include extend-to-edges-inner;
+
+  display: inline-grid;
+  grid-auto-flow: column;
+  column-gap: 20px;
+  justify-content: start;
+
+  .cardScroll {
+    width: 248px;
+  }
+
+  @include b-btw(lg, xxl) {
+    column-gap: 16px;
+
+    .cardScroll {
+      width: 224px;
+    }
+  }
+
+  @include b-d(lg) {
+    column-gap: 20px;
+
+    .cardScroll {
+      width: 230px;
+    }
+  }
+}
+
+.gridExploreMultiline {
+  @extend .gridExploreScroll;
+
+  display: grid;
+  padding: 0;
+  grid-auto-flow: row;
+  row-gap: 28px;
+  grid-template-columns: repeat(5, 1fr);
+
+  .cardScroll {
+    width: auto;
+  }
+
+  @include b-btw(lg, xxl) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @include b-btw(md, lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include b-d(md) {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+}
+
+.sectionLiveAuctions {
+  padding-bottom: 36px;
+
+  @include b-d(xxl) {
+    padding-bottom: 0;
+  }
+
+  .headingWrapper {
+    margin-top: 40px;
+
+    @include b-btw(md, lg) {
+      margin-bottom: 18px;
+    }
+
+    @include b-d(md) {
+      margin-bottom: 8px;
+    }
+  }
+
+  .heading {
+    display: inline-grid;
+    grid-auto-flow: column;
+    align-items: center;
+    column-gap: 16px;
+
+    &::before {
+      content: '';
+      display: block;
+      background: $gradient-2-danger;
+      border-radius: 100%;
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+.sectionExplore {
+  .gridFiltersBarWrapper {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr auto;
+    column-gap: 26px;
+    margin-bottom: 28px;
+
+    @include b-d(md) {
+      width: calc(100% + 2 * #{$container-padding-x-xs});
+      margin-left: -$container-padding-x-xs;
+      margin-bottom: 20px;
+    }
+  }
+
+  .headingWrapper {
+    @include b-d(md) {
+      margin: 40px 0 12px;
+    }
+  }
+
+  .btnSortBy {
+    color: $white;
+    padding: 13px;
+    align-self: start;
+
+    @include b-d(md) {
+      display: none;
+      padding: 11.5px;
+    }
+
+    &.xs {
+      @include b-up(md) {
+        display: none;
+      }
+
+      @include b-d(md) {
+        display: block;
+      }
+    }
+  }
+}
+
+.extraControls {
+  margin-top: 48px;
+  display: flex;
+  justify-content: center;
+
+  .spinner {
+    width: 60px;
+    height: 60px;
+    border-right-color: transparent;
+    border-width: 5px;
+  }
+}

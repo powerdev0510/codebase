@@ -1,0 +1,17 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+.btnIcon {
+  padding: 12px;
+
+  &.isAdaptive {
+    @include b-d(md) {
+      padding: 7px;
+
+      .icon {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
+}

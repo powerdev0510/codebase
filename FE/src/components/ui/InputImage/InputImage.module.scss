@@ -1,0 +1,54 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins';
+
+.imageSelectedField {
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 16px;
+  padding: 11px;
+  background-color: transparent;
+  border: 1px solid $white-100;
+  border-radius: 12px;
+  align-items: center;
+  grid-template-columns: auto 1fr;
+  transition: border-color 0.25s;
+
+  &:hover {
+    border-color: $gray-400;
+  }
+
+  .imgPreview {
+    width: 68px;
+    height: 68px;
+    object-fit: cover;
+    border-radius: 8px;
+    transform: translateZ(0); // Fix iOS Safari border-radius bug
+  }
+
+  .colImgInfo {
+    display: grid;
+    row-gap: 4px;
+    justify-items: flex-start;
+  }
+
+  .textInfo {
+    @include text-nav;
+
+    color: $white;
+  }
+
+  .textSize {
+    color: $white-500;
+    white-space: nowrap;
+  }
+
+  .btnDelete {
+    @include text-nav;
+    color: $pink;
+    transition: color 0.25s;
+
+    &:hover {
+      color: darken($pink, 10);
+    }
+  }
+}

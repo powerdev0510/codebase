@@ -1,0 +1,44 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins';
+
+.container {
+  display: grid;
+  grid-template-columns: 310px auto;
+  grid-template-rows: auto 1fr;
+  grid-auto-flow: column;
+  column-gap: 40px;
+  row-gap: 16px;
+  padding-top: 40px;
+
+  @include b-d(xxl) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;
+  }
+
+  @include b-d(md) {
+    padding-top: 24px;
+    row-gap: 40px;
+  }
+
+  @include b-btw(md, xxl) {
+    row-gap: 60px;
+
+    .cardStats {
+      display: none;
+    }
+  }
+}
+
+.auctionsContainer {
+  grid-row-start: 1;
+  grid-row-end: 3;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  align-items: start;
+  position: relative;
+
+  @include b-d(xxl) {
+    grid-row-start: auto;
+    grid-row-end: auto;
+  }
+}

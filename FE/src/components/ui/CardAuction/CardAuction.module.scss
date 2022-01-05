@@ -1,0 +1,146 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+$statusColors: (
+  'live': $pink,
+  'upcoming': $cyan,
+  'completed': $orange,
+);
+
+$gradients: (
+  'primary': $gradient-1-primary,
+  'danger': $gradient-2-danger,
+  'live': $gradient-3-success,
+  'complete': $gradient-5-warning,
+  'yellow': $gradient-4-yellow,
+);
+
+.cardAuction {
+  @include style-card;
+
+  display: flex;
+  flex-direction: column;
+  color: $white;
+
+  &:not(.liveAuction) .textName {
+    @include b-d(md) {
+      font-size: 15px;
+      line-height: 1.6;
+    }
+  }
+}
+
+.cardHead {
+  padding: 8px 8px 0;
+}
+
+.imgAspectRatioContainer {
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
+  border-radius: $card-img-border-radius;
+  overflow: hidden;
+
+  .blockUsers {
+    position: absolute;
+    left: 8px;
+    bottom: 8px;
+  }
+}
+
+.imgLinkWrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px 16px 17px 17px;
+}
+
+.badgeCountdown {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+}
+
+.overlayShadow {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000 84.38%);
+  pointer-events: none;
+  user-select: none;
+}
+
+.cardInfo {
+  flex-grow: 1;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.textName {
+  @include text-nav-1-responsive;
+
+  margin-bottom: 8px;
+
+  @include b-btw(lg, xxl) {
+    margin-bottom: 14px;
+  }
+}
+
+.bottomRow {
+  position: relative;
+  display: grid;
+  align-items: baseline;
+  grid-template-columns: auto 1fr;
+  column-gap: 8px;
+  white-space: nowrap;
+
+  &:after {
+    content: '';
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    bottom: -8px;
+    right: -8px;
+    background-color: $gray-fields;
+    box-shadow: 16px 0 1px $gray-fields, -16px 0 8px $gray-fields;
+  }
+}
+
+.textStatus {
+  @include text-info;
+}
+
+.textPrice {
+  @include text-nav-bold;
+
+  //@each $status, $color in $statusColors {
+  //  &.#{$status} {
+  //    color: $color;
+  //  }
+  //}
+
+  @each $status, $value in $gradients {
+    &.#{$status} {
+      > span {
+        color: transparent;
+        background: $value;
+        //noinspection CssInvalidPropertyValue
+        background-clip: text;
+      }
+    }
+  }
+}

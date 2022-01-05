@@ -1,0 +1,18 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+.btnWallet {
+  padding: $btn-padding-y 17px;
+
+  @include b-d(md) {
+    @include text-info;
+
+    line-height: 16px;
+    padding: 8px 12px;
+  }
+}
+
+.textCurrency {
+  margin-left: 4px;
+  color: $white-500;
+}

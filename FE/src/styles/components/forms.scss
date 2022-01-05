@@ -1,0 +1,73 @@
+.form {
+  &-text {
+    @include text-info;
+
+    display: block;
+    text-align: center;
+
+    &--error {
+      text-align: left;
+      margin-top: 4px;
+      padding: 0 $input-padding-x;
+      color: $pink;
+    }
+  }
+
+  &-label {
+    margin-bottom: 4px;
+
+    /* Variant: dark */
+    &--dark {
+      @include text-nav;
+
+      color: $white-200;
+    }
+  }
+
+  &-control {
+    // Drop autofill
+    &:-webkit-autofill,
+    &:-webkit-autofill:active,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      box-shadow: inset 0 0 0 500px $input-bg;
+      -webkit-text-fill-color: $input-color;
+      transition: background-color 250ms ease-in-out,
+        border-color 250ms ease-in-out, box-shadow 250ms ease-in-out;
+    }
+
+    /* Variant: dark */
+    &--dark {
+      background-color: $black;
+      border: 0;
+
+      &:focus {
+        background-color: $black;
+      }
+    }
+
+    /* Variant: borderless */
+    &--borderless {
+      @include text-header-2;
+
+      border: 0;
+      background: transparent;
+      padding: 0;
+      color: $gray-300;
+      transition: 0.25s all;
+
+      &:focus {
+        background: transparent;
+        box-shadow: none;
+      }
+    }
+
+    /* Variant: calculator */
+    &--calculator {
+      @include text-h-3;
+
+      text-align: right;
+      padding: 13px 19px;
+    }
+  }
+}

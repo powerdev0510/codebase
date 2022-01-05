@@ -1,0 +1,33 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins';
+
+.transactionStatusIndicator {
+  display: grid;
+  align-items: center;
+  grid-auto-flow: column;
+  column-gap: 8px;
+  color: $gray-300;
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: 0.1px;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  $gradients: (
+    'inProcess': $gradient-1-primary,
+    'failed': $gradient-2-danger,
+    'completed': $gradient-3-success,
+  );
+
+  @each $variant, $value in $gradients {
+    &.#{$variant}::before {
+      background: $value;
+    }
+  }
+}

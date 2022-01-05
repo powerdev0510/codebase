@@ -1,0 +1,30 @@
+.input-group {
+  border-radius: $input-border-radius;
+
+  /* prefixAddon: username */
+  &--username {
+    position: relative;
+
+    &::after {
+      content: '@';
+      display: block;
+      position: absolute;
+      left: 16px;
+      top: calc(50% - 1px);
+      z-index: 10;
+      transform: translateY(-50%);
+      color: currentColor;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    > .form-control {
+      padding-left: 33px;
+    }
+  }
+
+  /* variant: dark */
+  &--dark {
+    color: $white;
+  }
+}

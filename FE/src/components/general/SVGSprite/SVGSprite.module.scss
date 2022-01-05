@@ -1,0 +1,50 @@
+.table {
+  background: #222;
+  color: #fff;
+
+  thead {
+    background-color: #111;
+  }
+
+  td,
+  th {
+    border: 1px solid black;
+    padding: 10px 20px;
+  }
+
+  .iconWrapper,
+  .iconWrapperBlack {
+    display: inline-block;
+  }
+
+  &.def {
+    tr > td:nth-child(1) {
+      background-color: white;
+      color: #000;
+    }
+
+    tr > td:nth-child(2) {
+      background-color: black;
+      color: #fff;
+      border-top-color: #fff;
+      border-bottom-color: #fff;
+    }
+
+    .iconWrapper,
+    .iconWrapperBlack {
+      border: 1px solid red;
+    }
+  }
+
+  &.sl {
+    .iconWrapper {
+      background-color: #fff;
+      color: #000;
+    }
+
+    .iconWrapperBlack {
+      background-color: #000;
+      color: #fff;
+    }
+  }
+}

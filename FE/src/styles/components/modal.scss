@@ -1,0 +1,21 @@
+.modal {
+  &-dialog {
+    padding: $modal-dialog-margin;
+  }
+
+  &-header {
+    justify-content: center;
+  }
+
+  &-title {
+    display: block;
+    text-align: center;
+  }
+
+  &-body {
+    @include text-nav;
+
+    padding-top: 4px;
+    padding-bottom: 16px;
+  }
+}

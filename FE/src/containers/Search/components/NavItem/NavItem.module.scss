@@ -1,0 +1,9 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+.navItemText {
+  @include b-d(lg) {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+}

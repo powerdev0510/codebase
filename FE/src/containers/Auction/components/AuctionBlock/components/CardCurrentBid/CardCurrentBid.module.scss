@@ -1,0 +1,56 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+.cardCurrentBid {
+  @include style-card;
+
+  padding: 16px;
+  display: grid;
+  justify-items: stretch;
+  row-gap: 4px;
+  text-align: center;
+
+  @include b-btw(lg, xxl) {
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+    justify-items: center;
+    padding: 20px 0 28px;
+  }
+
+  &.bid {
+    row-gap: 4px;
+  }
+
+  /* Variant: purchaseSecondary */
+  &.purchaseSecondary {
+    .btnBid {
+      margin-top: 6px;
+    }
+  }
+}
+
+.textCurrentBid {
+  @include text-subtitle-responsive;
+
+  color: $white-200;
+}
+
+.textSecondary {
+  @include text-nav;
+
+  color: $white-500;
+}
+
+.btnBid {
+  margin-top: 12px;
+  padding: 12px 50px;
+
+  @include b-btw(lg, xxl) {
+    grid-row: 1 / 3;
+    grid-column: 2 / 3;
+  }
+
+  @include b-d(md) {
+    min-width: 184px;
+  }
+}

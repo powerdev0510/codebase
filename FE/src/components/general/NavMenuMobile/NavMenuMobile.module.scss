@@ -1,0 +1,45 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins';
+
+.menuMobileInner {
+  display: grid;
+  justify-items: center;
+  border-top: 24px solid $black;
+  border-bottom: 40px solid $black;
+  row-gap: 28px;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100%;
+
+  @include b-up(md) {
+    grid-template-rows: 1fr auto;
+  }
+}
+
+.cardFooter {
+  border-top: 1px solid #282828;
+  width: calc(100% + 16px * 2);
+  display: flex;
+  justify-content: center;
+}
+
+.social {
+  position: relative;
+  margin-top: 40px;
+}
+
+.inpSearchWrapper {
+  width: 280px;
+
+  @include b-up(md) {
+    display: none;
+  }
+}
+
+.inpSearch {
+  width: 100%;
+}
+
+.navWrapper {
+  display: grid;
+  align-items: center;
+}

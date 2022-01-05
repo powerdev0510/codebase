@@ -1,0 +1,19 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+.rdrMonthAndYearWrapper {
+  margin-bottom: 8px;
+  height: 24px;
+}
+
+.rdrMonthAndYearPickers {
+  @include text-subtitle;
+}
+
+.rdrNextPrevButton {
+  padding: 0;
+}
+
+.rdrWeekDays {
+  display: none;
+}

@@ -1,0 +1,43 @@
+.toast {
+  $this: &;
+
+  padding: 16px;
+  margin: 0;
+  min-height: 0;
+
+  &.bg-mistedGlass {
+    backdrop-filter: blur(35px);
+
+    // Mozilla Firefox
+    @supports not (backdrop-filter: blur(35px)) {
+      background-color: rgba($gray-700, 0.96);
+    }
+
+    #{$this}-header {
+      @include text-subtitle;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0;
+      margin-bottom: 4px;
+
+      &-btn-close {
+        color: $white;
+        transition: color 0.25s;
+
+        &:hover,
+        &:focus {
+          color: $pink;
+        }
+      }
+    }
+
+    #{$this}-body {
+      @include text-nav;
+
+      color: $gray-200;
+      padding: 0;
+    }
+  }
+}

@@ -1,0 +1,60 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+.popover {
+  @include text-subtitle-2;
+
+  min-height: 0;
+  background-color: $gray-fields;
+  width: 256px;
+  border-radius: 24px;
+  color: $white;
+  border: 1px solid #191919;
+
+  /* Variant: inlinePrimary */
+  &.inlinePrimary {
+    width: 160px;
+
+    .itemOptionButton {
+      text-transform: none;
+    }
+  }
+}
+
+.listOptions {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  color: $white;
+}
+
+.itemOptionButton {
+  color: inherit;
+  width: 100%;
+  text-align: left;
+  font-weight: inherit;
+  text-transform: capitalize;
+  padding: 12px 24px;
+  transition: color 0.25s;
+  border-radius: 100px;
+  background-color: transparent;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr auto;
+  column-gap: 8px;
+
+  &:hover,
+  &:focus {
+    color: $white-700;
+  }
+
+  //noinspection CssInvalidPropertyValue
+  &.itemActive span {
+    width: min-content;
+    color: transparent;
+    background: $gradient-5-warning;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+}

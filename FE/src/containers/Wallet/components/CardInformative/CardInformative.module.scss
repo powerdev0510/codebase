@@ -1,0 +1,23 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins';
+
+.cardInformative {
+  @include style-card-black;
+
+  align-self: flex-start;
+  padding: 24px;
+  display: grid;
+  column-gap: 4px;
+
+  .textHeading {
+    @include text-nav-1;
+
+    color: $white;
+  }
+
+  .textContent {
+    @include text-nav;
+
+    color: $gray-400;
+  }
+}

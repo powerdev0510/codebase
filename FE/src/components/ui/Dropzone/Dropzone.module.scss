@@ -1,0 +1,36 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins';
+
+.dropzone {
+  border-radius: 12px;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='12' ry='12' stroke='%234A4A58' stroke-width='1' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+  min-height: 92px;
+  padding: 16px;
+  display: grid;
+  row-gap: 4px;
+  align-content: center;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.25s ease-in-out;
+
+  &:hover {
+    background-color: $gray-900;
+  }
+
+  &.dragActive {
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='12' ry='12' stroke='%23D14F88' stroke-width='1' stroke-dasharray='8%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+    background-color: $gray-900;
+  }
+}
+
+.textMain {
+  @include text-nav;
+
+  color: $white-200;
+}
+
+.textSub {
+  @include text-nav;
+
+  color: $white-500;
+}

@@ -1,0 +1,22 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+.heading {
+  margin: 24px 0;
+
+  @include b-d(md) {
+    margin-bottom: 20px;
+  }
+}
+
+.gridFiltersBarWrapper {
+  margin-bottom: 24px;
+
+  @include b-d(lg) {
+    margin-bottom: 40px;
+  }
+}
+
+.cardsGrid {
+  @include cards-grid;
+}

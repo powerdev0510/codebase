@@ -1,0 +1,10 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+.toastContainer {
+  position: fixed;
+  right: 0;
+  top: 0;
+  padding: 24px;
+  z-index: $zindex-toast-container;
+}

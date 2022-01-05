@@ -1,0 +1,37 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+.badgeCountdown {
+  @include text-info;
+
+  background-color: $gray-fields;
+  padding: 4px 8px;
+  border-radius: 7px;
+  color: $white;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    padding: 1px;
+    border-radius: 7px;
+    mask: linear-gradient(#fff 0, #fff 100%) content-box,
+      linear-gradient(#fff 0, #fff 100%);
+    mask-composite: exclude;
+    background: $gradient-4-yellow;
+  }
+}
+
+.digitsContainer {
+  display: inline-block;
+  min-width: 13px;
+  text-align: right;
+
+  &.singleDigit {
+    min-width: 6.5px;
+  }
+}

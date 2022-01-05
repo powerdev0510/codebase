@@ -1,0 +1,85 @@
+.dropdown {
+  $this: &;
+
+  &-toggle {
+    &::after {
+      display: none;
+    }
+  }
+
+  /* All dark menus */
+  &-menu-dark {
+    transition: opacity 0.25s;
+
+    $gradients: (
+      'primary': $gradient-1-primary,
+      'danger': $gradient-2-danger,
+      'success': $gradient-3-success,
+      'yellow': $gradient-4-yellow,
+      'warning': $gradient-5-warning,
+    );
+
+    // className={cn({[`dropdown-item--${variant}`]: variant})}
+    #{$this}-item {
+      @each $variant, $value in $gradients {
+        &--#{$variant} {
+          transition: all 250ms;
+
+          &:active,
+          &.active {
+            background: $value;
+            //noinspection CssInvalidPropertyValue
+            background-clip: text;
+            text-fill-color: transparent;
+          }
+
+          &:active span,
+          &.active span {
+            color: transparent;
+            background: $value;
+            //noinspection CssInvalidPropertyValue
+            background-clip: text;
+          }
+
+          &:hover,
+          &:focus {
+            opacity: 0.7;
+          }
+        }
+      }
+    }
+  }
+
+  /* Menu more actions ( "•••" menu ) */
+  &-menu-more-actions {
+    #{$this}-item {
+      @include text-nav;
+
+      display: grid;
+      grid-auto-flow: column;
+      align-items: center;
+      column-gap: 8px;
+      justify-content: flex-start;
+      font-weight: $font-weight-semi-bold;
+
+      > svg {
+        color: $white-200;
+        transition: color 0.25s;
+      }
+
+      &:hover,
+      &:focus,
+      &:active {
+        opacity: 1;
+        > svg {
+          color: $white-700;
+          opacity: 1;
+        }
+      }
+
+      &--danger {
+        color: $white-500;
+      }
+    }
+  }
+}

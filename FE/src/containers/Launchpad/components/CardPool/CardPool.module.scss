@@ -1,0 +1,108 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+.cardPool {
+  @include style-card;
+
+  display: grid;
+  padding: 8px;
+  column-gap: 12px;
+  align-items: center;
+  grid-template-columns: 270px auto;
+
+  @include b-btw(lg, xxl) {
+    grid-template-columns: auto;
+    row-gap: 8px;
+  }
+
+  @include b-d(md) {
+    grid-template-columns: auto;
+    row-gap: 8px;
+  }
+}
+
+.imgAspectRatioContainer {
+  width: 100%;
+  padding-top: 75%;
+  position: relative;
+
+  .img {
+    @include fix-ios-border-radius;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+  }
+}
+
+.blockRight {
+  padding: 8px;
+}
+
+.textDesc {
+  @include text-nav;
+
+  color: $white-500;
+  margin-top: 2px;
+}
+
+.rowInfo {
+  display: grid;
+  grid-auto-flow: column;
+  justify-items: start;
+  margin: 20px 0 22px;
+}
+
+.gridCoinInfo {
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 12px;
+  align-items: center;
+}
+
+.imgCoin {
+  @include fix-ios-border-radius;
+
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+}
+
+.textCoinName {
+  @include text-subtitle;
+
+  color: $white;
+}
+
+.gridFollowers {
+  justify-self: center;
+  display: grid;
+  row-gap: 1px;
+}
+
+.textFollowersLabel {
+  @include text-info;
+
+  color: $white-500;
+}
+
+.textFollowers {
+  @include text-nav-1;
+
+  color: $white;
+}
+
+.btnDetails {
+  width: 100%;
+}
+
+.badgeCountdown {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 10;
+}

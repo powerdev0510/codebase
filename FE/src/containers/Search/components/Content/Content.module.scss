@@ -1,0 +1,18 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+.heading {
+  margin: 40px 0 24px;
+  color: $white-500;
+
+  @include b-d(md) {
+    margin: 23px 0 10px;
+  }
+
+  .textResult {
+    color: $orange;
+  }
+  .textSearchValue {
+    color: $white;
+  }
+}

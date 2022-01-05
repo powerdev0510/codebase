@@ -1,0 +1,75 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+.btnClose {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  color: $white-200;
+  transition: all 0.25s;
+
+  &:hover {
+    color: $white-500;
+  }
+
+  &.hiddenOnMobile {
+    @include b-d(md) {
+      display: none;
+    }
+  }
+}
+
+.loadingOverlay {
+  border-radius: $modal-content-border-radius;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba($gray-fields, 0.8);
+  z-index: $zindex-modal + 10;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(1px);
+
+  // Mozilla Firefox
+  @supports not (backdrop-filter: blur(1px)) {
+    background-color: rgba($gray-fields, 0.88);
+  }
+}
+
+.spinner {
+  width: 100px;
+  height: 100px;
+  border-color: $white;
+  border-right-color: transparent;
+}
+
+.spinnerWrapper {
+  display: grid;
+  justify-items: center;
+  row-gap: 36px;
+  color: $white;
+}
+
+.textContainer {
+  text-align: center;
+  display: grid;
+  row-gap: 2px;
+}
+
+.extraText {
+  font-size: 80%;
+}
+
+.textLoading,
+.extraText {
+  text-shadow: 0 0 10px $gray-fields;
+}
+
+.textLoading::after {
+  display: inline-block;
+  animation: dotty steps(1, end) 1.5s infinite;
+  content: '';
+}

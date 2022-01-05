@@ -1,0 +1,70 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+.input-select-container {
+  .input-select {
+    &__control {
+      background-color: $input-bg;
+      border-radius: $input-border-radius;
+      border: $input-border-width solid $input-border-color;
+      padding: $input-padding-x;
+
+      &--is-focused {
+        border-color: #86b7fe;
+        outline: 0;
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+      }
+    }
+
+    &__value-container {
+      padding: 0;
+      margin: 0;
+      font-size: $input-font-size;
+      line-height: $input-line-height;
+      font-weight: $input-font-weight;
+
+      > div:not(.input-select__single-value) {
+        color: $input-placeholder-color;
+      }
+
+      > .input-select__single-value {
+        color: $input-color;
+      }
+    }
+
+    &__input-container {
+      padding: 0;
+      margin: 0;
+    }
+
+    &__indicator {
+      padding: 2px;
+    }
+
+    &__menu {
+      background-color: $gray-fields;
+      border-radius: $input-border-radius;
+      border: $input-border-width solid $input-border-color;
+    }
+
+    &__option {
+      cursor: pointer;
+      transition: color 0.25s;
+      padding: 14px 12px;
+
+      &:hover {
+        background-color: transparent;
+        color: $white;
+      }
+
+      &--is-focused {
+        background-color: transparent;
+      }
+
+      &--is-selected {
+        background-color: transparent;
+        color: $pink;
+      }
+    }
+  }
+}

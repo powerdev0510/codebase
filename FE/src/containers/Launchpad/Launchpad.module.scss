@@ -1,0 +1,109 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+.containerLaunch {
+  display: grid;
+  row-gap: 72px;
+  padding-top: 40px;
+}
+
+.headingSection {
+  margin-bottom: 24px;
+}
+
+.poolsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+
+  @include b-btw(lg, xxl) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include b-d(lg) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.gridCalculator {
+  display: grid;
+  grid-template-columns: 504px 1fr;
+  min-height: 320px;
+
+  @include b-d(lg) {
+    grid-template-columns: auto;
+    background-color: #622120;
+
+    > div {
+      display: none;
+    }
+  }
+}
+
+.sectionAbout {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  text-align: center;
+
+  > hr {
+    margin: 48px 0;
+    width: 168px;
+    background-color: $white-200;
+  }
+
+  @include b-d(md) {
+    margin-top: -32px;
+  }
+}
+
+.textAboutDescription {
+  max-width: 540px;
+  margin-top: 24px;
+}
+
+.textContactHeading {
+  @include text-subtitle;
+
+  color: $white;
+}
+
+.textContactDescription {
+  @include text-nav;
+
+  margin-top: 8px;
+}
+
+.btnContact {
+  width: 224px;
+  margin-top: 32px;
+}
+
+.iconRocket {
+  position: absolute;
+  top: 42px;
+  left: 0;
+  width: 273px;
+  height: 273px;
+
+  @include b-btw(lg, xxl) {
+    left: -88px;
+  }
+
+  @include b-d(lg) {
+    width: 136px;
+    height: 136px;
+    top: 212px;
+  }
+
+  @include b-btw(md, lg) {
+    left: -44px;
+  }
+
+  @include b-d(md) {
+    position: static;
+    margin-bottom: 48px;
+    grid-row: 1 / 2;
+    transform: translate(6px, -6px);
+  }
+}

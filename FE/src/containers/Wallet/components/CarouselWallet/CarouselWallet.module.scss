@@ -1,0 +1,107 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins';
+
+.rowPageHeading {
+  @include extend-to-edges-inner;
+
+  margin-top: 16px;
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: space-between;
+
+  @include b-d(md) {
+    margin-top: 8px;
+    grid-auto-flow: row;
+    row-gap: 16px;
+  }
+}
+
+.inpSearchWrapper {
+  width: 258px;
+}
+
+.inpSearch {
+  width: 100%;
+}
+
+.blockWallets {
+  position: relative;
+  width: 100%;
+  margin-top: 24px;
+
+  @include b-d(md) {
+    margin-top: 28px;
+  }
+}
+
+.carouselWallet {
+  @include extend-to-edges-outer;
+}
+
+.gridWallets {
+  @include dark-scrollbar;
+
+  display: grid;
+  overflow-x: scroll;
+
+  -webkit-overflow-scrolling: touch;
+
+  .gridWalletsInner {
+    padding-bottom: 24px;
+  }
+}
+
+.gridWalletsInner {
+  @include extend-to-edges-inner;
+
+  display: inline-grid;
+  grid-auto-flow: column;
+  column-gap: 20px;
+  justify-content: start;
+}
+
+%blendFadeShadow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 128px;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 1;
+  transition: all 0.35s;
+
+  &.hidden {
+    width: $container-padding-x-xxl;
+
+    @include b-btw(lg, xxl) {
+      width: $container-padding-x-lg;
+    }
+
+    @include b-btw(md, lg) {
+      width: $container-padding-x-md;
+    }
+
+    @include b-d(md) {
+      width: $container-padding-x-xs;
+    }
+  }
+
+  @include b-d(xxl) {
+    width: 80px;
+  }
+}
+
+.blendShadowRight {
+  @extend %blendFadeShadow;
+
+  right: 0;
+  background: linear-gradient(270deg, rgba($black, 1) 0%, rgba($black, 0) 100%);
+}
+
+.blendShadowLeft {
+  @extend %blendFadeShadow;
+
+  left: 0;
+  background: linear-gradient(90deg, rgba($black, 1) 0%, rgba($black, 0) 100%);
+}

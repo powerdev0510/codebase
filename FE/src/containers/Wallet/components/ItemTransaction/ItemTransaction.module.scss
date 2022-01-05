@@ -1,0 +1,179 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins';
+
+.itemTransaction {
+  display: grid;
+  padding: 20px;
+  align-items: center;
+  column-gap: 16px;
+  grid-template-columns: 40px 1fr repeat(3, 150px);
+  justify-items: flex-start;
+  overflow: hidden;
+
+  @include b-d(xxl) {
+    grid-template-columns: 40px 1fr 165px 24px;
+  }
+
+  @include b-d(md) {
+    grid-template-columns: 32px 120px 1fr 24px;
+    padding: 8px 0;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $white-200;
+    }
+  }
+
+  .iconContainer {
+    width: 40px;
+    height: 40px;
+    background-color: $black;
+    border: 1px solid $white-200;
+    border-radius: 4px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    color: $white;
+
+    @include b-d(md) {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  .colType {
+    display: grid;
+    row-gap: 2px;
+
+    .textDesc {
+      @include text-subtitle-2;
+
+      color: $white;
+      word-wrap: anywhere;
+
+      .textDescLink {
+        text-decoration: none;
+        color: $pink;
+      }
+
+      .textPrimary {
+        color: $pink;
+      }
+    }
+
+    .textId {
+      @include text-small-1;
+
+      color: $gray-400;
+    }
+  }
+
+  .statusIndicator {
+    @include b-d(xxl) {
+      display: none;
+    }
+  }
+
+  .textDateTime {
+    @include text-body-2;
+
+    color: $gray-300;
+
+    .textTime {
+      color: $gray-400;
+    }
+  }
+
+  .blockDateTimeXxl {
+    @include b-d(xxl) {
+      display: none;
+    }
+  }
+
+  .colAmount {
+    display: grid;
+    row-gap: 2px;
+    text-align: end;
+    justify-self: flex-end;
+
+    .textAmountMain {
+      @include text-subtitle-2;
+
+      color: $white;
+    }
+
+    .textAmountExtra {
+      @include text-small-1;
+
+      color: $gray-400;
+    }
+
+    @include b-d(md) {
+      justify-self: end;
+      text-align: end;
+    }
+  }
+
+  .btnExpand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    transition: all 0.25s;
+    color: $pink;
+    background-color: $gray-card;
+
+    @include b-up(xxl) {
+      display: none;
+    }
+
+    &:hover,
+    &:focus {
+      color: darken($pink, 12);
+      background-color: $gray-800;
+    }
+
+    .iconChevron {
+      transition: all 0.25s;
+    }
+
+    &.active {
+      color: $white;
+
+      .iconChevron {
+        transform: rotateX(180deg);
+      }
+    }
+  }
+
+  .accordionCollapse {
+    grid-column: 2 / 5;
+  }
+
+  .blockExpand {
+    @include text-body-3;
+
+    @include b-up(xxl) {
+      display: none;
+    }
+
+    color: $gray-400;
+    display: grid;
+    row-gap: 8px;
+    justify-items: flex-start;
+    grid-template-rows: repeat(2, auto) 1fr;
+    padding-top: 12px;
+
+    .blockExpandRow {
+      display: grid;
+      column-gap: 12px;
+      grid-auto-flow: column;
+      align-items: center;
+
+      @include b-d(md) {
+        column-gap: 8px;
+      }
+    }
+  }
+}

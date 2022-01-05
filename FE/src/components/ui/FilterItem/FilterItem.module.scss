@@ -1,0 +1,50 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+$gradients: (
+  'primary': $gradient-1-primary,
+  'danger': $gradient-2-danger,
+  'success': $gradient-3-success,
+  'warning': $gradient-5-warning,
+  'yellow': $gradient-4-yellow,
+);
+
+.filterItem {
+  @include text-nav-1-responsive;
+
+  padding: 12px 28px;
+  background-color: $gray-fields;
+  border-radius: 12px;
+  color: $white-500;
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: center;
+  column-gap: 8px;
+  transition: 0.25s color;
+  white-space: nowrap;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    background: linear-gradient(0, $white-500 0%, $white-500 100%);
+    transition: 0.25s background;
+  }
+
+  &:hover {
+    color: $white;
+  }
+
+  &.active {
+    color: $white;
+  }
+
+  @each $variant, $value in $gradients {
+    &.#{$variant}:before {
+      background: $value;
+    }
+  }
+}

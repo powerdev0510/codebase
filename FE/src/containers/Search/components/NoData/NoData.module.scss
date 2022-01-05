@@ -1,0 +1,30 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+.wrap {
+  @include page-content-centering;
+}
+
+.heading {
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 42px;
+  color: $white;
+}
+
+.description {
+  margin: 12px 0 24px;
+  max-width: 400px;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.6;
+  color: $white-500;
+
+  @include b-d(md) {
+    max-width: 322px;
+  }
+}
+
+.btnExplore {
+  max-width: 120px;
+}

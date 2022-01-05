@@ -1,0 +1,194 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+.cardShare {
+  @include text-nav-1;
+
+  overflow: hidden;
+  background-color: $card-bg;
+  padding: 8px;
+  border-radius: 16px;
+  color: $white-200;
+  display: grid;
+  justify-items: center;
+
+  .blockShareOptions {
+    a {
+      color: inherit;
+
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+
+  /* Variant: inline */
+  &.inline {
+    padding: 0;
+    border-radius: 6px;
+    width: 40px;
+    transition: width 0.25s;
+
+    &.expanded {
+      width: 190px;
+    }
+
+    .btnShare {
+      padding: 8px;
+    }
+
+    .textShare {
+      display: none;
+    }
+  }
+
+  /* Variant: cardBlack */
+  &.cardBlack {
+    background-color: $black;
+
+    .blockShareOptions {
+      a {
+        color: $white;
+
+        &:hover {
+          color: $white-500;
+        }
+      }
+    }
+
+    .btnClose {
+      background-color: $gray-fields;
+    }
+
+    .btnShare {
+      color: $white;
+
+      &:hover {
+        color: $white-500;
+      }
+    }
+  }
+
+  /* Variant: cardGray */
+  &.cardGray {
+    .btnShare {
+      color: $white;
+
+      &:hover {
+        color: $white-500;
+      }
+    }
+
+    .blockShareOptions {
+      a {
+        color: $white;
+
+        &:hover {
+          color: $white-500;
+        }
+      }
+    }
+  }
+
+  /* Variant: vertical */
+  &.vertical {
+    position: absolute;
+    right: -8px;
+    bottom: -8px;
+    padding: 0;
+    height: 40px;
+    background: $gray-fields;
+    transition: height 0.3s;
+    z-index: 1;
+
+    &.expanded {
+      height: 208px;
+      right: -12px;
+      border: 1px solid rgba($white, 0.1);
+    }
+
+    .btnShare {
+      padding: 8px;
+    }
+
+    .textShare {
+      display: none;
+    }
+
+    .btnClose {
+      padding: 4px;
+      background: $black;
+      border: 2px solid $gray-fields;
+      border-radius: 8px;
+    }
+
+    .blockShareOptions {
+      align-items: center;
+      justify-content: center;
+      grid-auto-flow: row;
+      row-gap: 8px;
+      padding: 7px;
+      border-radius: 16px;
+
+      a {
+        background: #1f2029;
+        border: 2px solid $gray-fields;
+        border-radius: 8px;
+        padding: 6px;
+        color: $white;
+
+        &:hover {
+          color: $white-500;
+        }
+      }
+    }
+  }
+}
+
+.btnShare {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+  align-items: center;
+  column-gap: 12px;
+  color: inherit;
+  transition: color 0.25s;
+  padding: 8px 16px;
+
+  &:hover {
+    color: $white;
+  }
+}
+
+.blockShareOptions {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+  align-items: center;
+  column-gap: 12px;
+  padding: 8px 11px;
+  list-style: none;
+  margin: 0;
+
+  a {
+    display: block;
+    transition: color 0.25s;
+    color: inherit;
+
+    &:hover {
+      color: $white-500;
+    }
+  }
+}
+
+.btnClose {
+  background-color: $black;
+  border-radius: 4px;
+  padding: 2px;
+  color: $white;
+  transition: all 0.25s;
+
+  &:hover {
+    color: $pink;
+  }
+}

@@ -1,0 +1,63 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+.btnTransactionFilter {
+  @include text-nav;
+
+  color: $white;
+  background-color: $gray-fields;
+  border-radius: 8px;
+  padding: 8px;
+  display: grid;
+  align-items: center;
+  grid-auto-flow: column;
+  text-align: left;
+  column-gap: 8px;
+  text-transform: capitalize;
+  border: 0;
+  transition: border-color 0.25s;
+  white-space: nowrap;
+
+  .iconFilter {
+    color: $white-500;
+  }
+
+  .iconChevron,
+  .iconClear {
+    color: $white-500;
+    margin-left: 4px;
+  }
+
+  .iconChevron {
+    transition: transform 0.25s;
+  }
+
+  &.open {
+    border-color: $primary;
+
+    .iconChevron {
+      transform: rotateX(180deg);
+    }
+  }
+
+  /* Variant: inlinePrimary */
+  &.inlinePrimary {
+    display: inline-grid;
+    column-gap: 0;
+    color: $primary;
+    line-height: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    background-color: transparent;
+    text-transform: none;
+    padding: 0;
+    border-radius: 0;
+    border: 0;
+    margin-right: 12px;
+
+    .iconChevron {
+      margin: 4px 0 0 8px;
+      color: $primary;
+    }
+  }
+}

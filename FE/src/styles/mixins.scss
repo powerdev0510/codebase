@@ -1,0 +1,272 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/mixins';
+@import 'settings';
+@import 'keyframes';
+
+@mixin b-up($name) {
+  @include media-breakpoint-up($name) {
+    @content;
+  }
+}
+
+@mixin b-d($name) {
+  @include media-breakpoint-down($name) {
+    @content;
+  }
+}
+
+@mixin b-btw($lower, $upper) {
+  @include media-breakpoint-between($lower, $upper) {
+    @content;
+  }
+}
+
+@mixin b-o($name) {
+  @include media-breakpoint-only($name) {
+    @content;
+  }
+}
+
+/* Typography styles */
+
+@mixin text-body-1 {
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  font-weight: $font-weight-base;
+}
+
+@mixin text-h-3 {
+  font-size: $h3-font-size;
+  line-height: $headings-line-height;
+  font-weight: $headings-font-weight;
+}
+
+@mixin text-body-2 {
+  font-size: $font-size-sm;
+  letter-spacing: 0.1px;
+  font-weight: $font-weight-medium;
+  line-height: calc(20 / 14);
+}
+
+@mixin text-body-3 {
+  font-size: $font-size-sm;
+}
+
+@mixin text-header-2 {
+  font-size: $h3-font-size;
+  line-height: $headings-line-height;
+  font-weight: $headings-font-weight;
+}
+
+@mixin text-subtitle-2 {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semi-bold;
+  line-height: calc(22 / 14); /* 1.5714 */
+}
+
+@mixin text-small-1 {
+  font-size: $font-size-xsm;
+  line-height: calc(20 / 12); /* 1.67777 */
+  letter-spacing: 0.1px;
+  font-weight: $font-weight-medium;
+}
+
+@mixin text-nav {
+  font-size: 13px;
+  line-height: $line-height-base;
+  font-weight: $font-weight-base;
+}
+
+@mixin text-nav-bold {
+  font-size: 13px;
+  line-height: $line-height-base;
+  font-weight: $font-weight-bold;
+}
+
+@mixin text-nav-1 {
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: $font-weight-semi-bold;
+}
+
+@mixin text-nav-1-responsive {
+  @include text-nav-1;
+
+  @include b-d(lg) {
+    font-size: 14px;
+    line-height: $line-height-base;
+  }
+}
+
+@mixin text-info {
+  font-size: 10px;
+  line-height: $line-height-base;
+  font-weight: $font-weight-semi-bold;
+}
+
+@mixin text-subtitle {
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  font-weight: $font-weight-bold;
+}
+
+@mixin text-subtitle-responsive {
+  @include text-subtitle;
+
+  @include b-d(lg) {
+    font-size: 14px;
+  }
+}
+
+/* Reusable styles */
+
+@mixin style-card {
+  border-radius: $card-border-radius;
+  background-color: $card-bg;
+  overflow: hidden;
+}
+
+@mixin style-card-black {
+  border-radius: $card-border-radius;
+  background-color: transparent;
+  border: 1px solid $white-200;
+  overflow: hidden;
+}
+
+@mixin dark-scrollbar {
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $gray-card;
+    border-radius: 2px;
+
+    &:hover {
+      background-color: lighten($gray-card, 8);
+    }
+  }
+
+  // Mozilla Firefox
+  scrollbar-width: thin;
+  scrollbar-color: $gray-card transparent;
+}
+
+// Fix iOS Safari border-radius bug
+@mixin fix-ios-border-radius {
+  transform: translateZ(0);
+}
+
+@mixin hideScrollbar {
+  // https://blogs.msdn.microsoft.com/kurlak/2013/11/03/hiding-vertical-scrollbars-with-pure-css-in-chrome-ie-6-firefox-opera-and-safari/
+  // There is a CSS rule that can hide scrollbars in Webkit-based browsers (Chrome and Safari).
+  &::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    height: 0 !important;
+    width: 0 !important;
+  }
+
+  &::-webkit-scrollbar-track {
+    height: 0 !important;
+    width: 0 !important;
+  }
+  // There is a CSS rule that can hide scrollbars in IE 10+.
+  -ms-overflow-style: none !important;
+
+  // Use -ms-autohiding-scrollbar if you wish to display on hover.
+  // -ms-overflow-style: -ms-autohiding-scrollbar;
+
+  // There used to be a CSS rule that could hide scrollbars in Firefox, but it has since been deprecated.
+  scrollbar-width: none !important;
+}
+
+/* Miscellaneous */
+
+@mixin style-disabled {
+  &.disabled,
+  &.disabled:hover,
+  &:disabled,
+  &:disabled:hover {
+    @content;
+  }
+}
+
+@mixin cards-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  row-gap: 28px;
+  column-gap: 20px;
+
+  @include b-btw(lg, xxl) {
+    column-gap: 16px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @include b-d(lg) {
+    column-gap: 20px;
+  }
+
+  @include b-btw(md, lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include b-d(md) {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+}
+
+@mixin page-content-centering {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  display: grid;
+  text-align: center;
+  justify-items: center;
+
+  @include b-d(md) {
+    transform: translate(-50%, calc(-50% - 47px));
+  }
+}
+
+@mixin extend-to-edges-outer {
+  width: calc(100% + #{$container-padding-x-xxl} * 2);
+  margin-left: -$container-padding-x-xxl;
+
+  @include b-btw(lg, xxl) {
+    width: calc(100% + #{$container-padding-x-lg} * 2);
+    margin-left: -$container-padding-x-lg;
+  }
+
+  @include b-btw(md, lg) {
+    width: calc(100% + #{$container-padding-x-md} * 2);
+    margin-left: -$container-padding-x-md;
+  }
+
+  @include b-d(md) {
+    width: calc(100% + #{$container-padding-x-xs} * 2);
+    margin-left: -$container-padding-x-xs;
+  }
+}
+
+@mixin extend-to-edges-inner {
+  padding: 0 $container-padding-x-xxl;
+
+  @include b-btw(lg, xxl) {
+    padding: 0 $container-padding-x-lg;
+  }
+
+  @include b-btw(md, lg) {
+    padding: 0 $container-padding-x-md;
+  }
+
+  @include b-d(md) {
+    padding: 0 $container-padding-x-xs;
+  }
+}

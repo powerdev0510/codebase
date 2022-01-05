@@ -1,0 +1,56 @@
+//noinspection CssUnknownTarget
+@import '~styles/mixins.scss';
+
+.wrap {
+  @include style-card;
+
+  padding: 24px 8px;
+  display: grid;
+  text-align: center;
+
+  @include b-btw(lg, xxl) {
+    padding: 27px 8px;
+    grid-template-rows: repeat(2, auto);
+    grid-auto-flow: column;
+    justify-content: center;
+    align-items: center;
+    column-gap: 40px;
+
+    .soldForPrice {
+      grid-row: 1 / 3;
+    }
+  }
+}
+
+.outOfStock {
+  @include text-subtitle;
+
+  margin-bottom: 4px;
+  color: transparent;
+  background: $gradient-2-danger;
+  //noinspection CssInvalidPropertyValue
+  background-clip: text;
+
+  @include b-btw(lg, xxl) {
+    margin-bottom: 0;
+  }
+}
+
+.soldFor {
+  @include text-subtitle;
+  color: $white-200;
+
+  &::after {
+    content: ':';
+  }
+}
+
+.soldForPriceUsd {
+  @include text-subtitle;
+  margin-top: 4px;
+  color: $white-200;
+
+  @include b-btw(lg, xxl) {
+    margin-top: 0;
+  }
+}
